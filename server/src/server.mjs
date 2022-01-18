@@ -1,14 +1,9 @@
 import http from "http";
-import express from "express";
 import dotenv from "dotenv";
 
+import app from './app.mjs'
+
 dotenv.config();
-
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Hello Back-end");
-});
 
 const server = http.createServer(app);
 
