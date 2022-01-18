@@ -16,3 +16,7 @@ export const editTask = async (task) => {
 
   return editedTask;
 };
+
+export const deleteTask = async (id) => {
+  await tasks.findByIdAndDelete(id);
+};
