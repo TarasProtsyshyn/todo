@@ -1,15 +1,13 @@
-export const defaultTask = {
-  id: "",
-  content: "",
-  createdAt: "",
-  editedAt: "",
-};
+import mongoose from "mongoose";
 
-export const tasks = [
+const tasksSchema = new mongoose.Schema(
   {
-    id: "sraraa",
-    content: "Task actually",
-    createdAt: "934857934857394",
-    editedAt: "934857934857394",
+    content: {
+      type: String,
+      required: true,
+    },
   },
-];
+  { versionKey: false, timestamps: true }
+);
+
+export default mongoose.model("Task", tasksSchema);
