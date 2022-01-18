@@ -9,3 +9,10 @@ export const addNewTask = async (task) => {
 
   return newTask;
 };
+
+export const editTask = async (task) => {
+  await tasks.findByIdAndUpdate(task.id, { content: task.content });
+  const editedTask = await tasks.findById(task.id);
+
+  return editedTask;
+};

@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 
+mongoose.set("toJSON", {
+  virtuals: true,
+  transform: (doc, converted) => {
+    delete converted._id;
+  },
+});
+
 mongoose.connection.once("open", () => {
   console.log("MongoDB connection ready");
 });
@@ -13,5 +20,5 @@ export const mongoConnect = async () => {
 };
 
 export const mongoDisconnect = async () => {
-  await mongoose.disconnect()
+  await mongoose.disconnect();
 };
