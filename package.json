@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "yarn --cwd ./server start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taras-protsyshyn/todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taras-protsyshyn/todo/issues"
+  },
+  "homepage": "https://github.com/taras-protsyshyn/todo#readme",
+  "devDependencies": {}
+}
