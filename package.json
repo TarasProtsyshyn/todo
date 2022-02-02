@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:server": "yarn --cwd ./server start"
+    "start:server": "yarn --cwd ./server start",
+    "install:server": "yarn --cwd ./server install",
+    "start:client": "yarn --cwd ./client start",
+    "install:client": "yarn --cwd ./client install",
+    "install": "yarn install:server && yarn install:client"
   },
   "repository": {
     "type": "git",
