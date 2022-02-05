@@ -1,0 +1,4 @@
+.btn {
+  --main-bg-color: red;
+  baground-color: var(--main-bg-color);
+}

@@ -1,0 +1,18 @@
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.active button {
+  color: white;
+}
+
+.filters-item button {
+  cursor: pointer;
+}
+
+.filters-item:not(:first-child) button::before {
+  content: "/";
+  font-weight: 300;
+  padding-right: 12px;
+}
