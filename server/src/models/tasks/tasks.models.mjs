@@ -1,7 +1,7 @@
 import tasks from "./tasks.mongo.mjs";
 
-export const getAllTasks = async () => {
-  return await tasks.find({});
+export const getAllTasks = async (filterBy = {}) => {
+  return await tasks.find(filterBy).sort({ createdAt: -1 });
 };
 
 export const addNewTask = async (task) => {
@@ -11,7 +11,7 @@ export const addNewTask = async (task) => {
 };
 
 export const editTask = async (task) => {
-  await tasks.findByIdAndUpdate(task.id, { content: task.content });
+  await tasks.findByIdAndUpdate(task.id, { content: task.content, isDone: task.isDone });
   const editedTask = await tasks.findById(task.id);
 
   return editedTask;
