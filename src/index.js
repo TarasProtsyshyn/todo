@@ -9,11 +9,11 @@ import configureStore from "./redux/configureStore";
 const store = configureStore();
 
 async function main() {
-  if (process.env.NODE_ENV === "development") {
-    const { worker } = require("./tests/mocks/browser");
+  // if (process.env.NODE_ENV === "development") {
+  //   const { worker } = require("./tests/mocks/browser");
 
-    await worker.start();
-  }
+  //   await worker.start();
+  // }
 
   ReactDOM.render(
     <React.StrictMode>
