@@ -12,9 +12,19 @@ export const TodoList = () => {
   const tasks = useSelector((state) => state.tasks.data);
   const getTasks = useReduxAction(getTasksAction);
   const [filter, setFilter] = useState(taskTypes.ALL);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getTasks({ filter });
+    setLoading(true);
+    getTasks({
+      filter,
+      onSuccess: () => {
+        setLoading(false);
+      },
+      onFail: () => {
+        setLoading(false);
+      },
+    });
   }, [filter, getTasks]);
 
   const onChangeFilter = (val) => {
@@ -24,9 +34,9 @@ export const TodoList = () => {
   return (
     <Container>
       <TodoListFilters activeFilter={filter} onChange={onChangeFilter} />
-      {tasks.map((el) => (
-        <TodoListItem key={el.id} {...el} />
-      ))}
+      {loading && <div>Loading...</div>}
+      {!loading && !tasks.length > 0 && <div>Not have tasks yet</div>}
+      {!loading && tasks.map((el) => <TodoListItem key={el.id} {...el} />)}
     </Container>
   );
 };

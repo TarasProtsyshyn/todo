@@ -10,13 +10,19 @@ export const AddNewTask = () => {
   const addTask = useReduxAction(addTaskAction);
 
   const [newTask, setNewTask] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setNewTask(e.target.value);
+    setError("");
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!newTask) {
+      setError("Task can't be empty");
+    }
 
     addTask(newTask);
     setNewTask("");
@@ -31,6 +37,7 @@ export const AddNewTask = () => {
           name="new-task"
           placeholder="What needs to be done?"
         />
+        {error && <span className={s.error}>{error}</span>}
       </form>
     </Container>
   );

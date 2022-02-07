@@ -4,12 +4,14 @@ import * as types from "./tasksActionTypes";
 import * as tasksApi from "../../api/tasks";
 
 function* getTasksSaga({ payload }) {
+  const { filter, onSuccess, onFail } = payload;
   try {
-    const { filter } = payload;
     const response = yield call(tasksApi.getTasksApi, { params: { filter } });
 
     yield put({ type: types.REQUEST_TASKS_SUCCESS, payload: response });
+    yield onSuccess && onSuccess();
   } catch (err) {
+    yield onFail && onFail();
     console.error(err);
   }
 }

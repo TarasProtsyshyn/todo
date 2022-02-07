@@ -60,25 +60,42 @@ export const TodoListItem = ({ id, content, isDone }) => {
   return (
     <li ref={ref} className={cl(s.item, isDone && s.done, edit && s.edit)}>
       {!edit && (
-        <button onClick={onCheck} className={cl(s.check, s.btn, isDone && s.done)}>
+        <button
+          data-testid="todo-item-check"
+          onClick={onCheck}
+          className={cl(s.check, s.btn, isDone && s.done)}
+        >
           {isDone && <Check height={16} width={16} />}
         </button>
       )}
       {edit ? (
-        <Input onKeyDown={handleClick} onChange={onEdit} value={task} autoFocus />
+        <Input
+          data-testid="todo-item-input"
+          onKeyDown={handleClick}
+          onChange={onEdit}
+          value={task}
+          autoFocus
+        />
       ) : (
-        <span className={cl(s.content, isDone && s.done)}>{task}</span>
+        <span data-testid="todo-item-content" className={cl(s.content, isDone && s.done)}>
+          {task}
+        </span>
       )}
       {edit ? (
-        <button onClick={onClose} className={s.btn}>
+        <button data-testid="todo-item-close" onClick={onClose} className={s.btn}>
           <Close height={20} width={20} />
         </button>
       ) : (
         <>
-          <button disabled={isDone} onClick={toggleEdit} className={s.btn}>
+          <button
+            data-testid="todo-item-edit"
+            disabled={isDone}
+            onClick={toggleEdit}
+            className={s.btn}
+          >
             <Edit height={20} width={20} />
           </button>
-          <button onClick={onDelete} className={s.btn}>
+          <button data-testid="todo-item-delete" onClick={onDelete} className={s.btn}>
             <Delete height={20} width={20} />
           </button>
         </>
@@ -94,6 +111,7 @@ TodoListItem.defaultProps = {
   id: "61fd40c04e1f53917ac2a0e9",
   isDone: false,
 };
+
 TodoListItem.propTypes = {
   id: T.string,
   content: T.string,

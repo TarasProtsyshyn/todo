@@ -24,8 +24,7 @@ const filters = [
   },
 ];
 
-export const TodoListFilters = ({ onChange, activeFilter }) => {
-
+export const TodoListFilters = ({ onChange, activeFilter = taskTypes.ALL }) => {
   const handleChange = (type) => () => {
     onChange(type);
   };
