@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:client": "yarn --cwd ./client test",
+    "build:client": "yarn --cwd ./client build",
     "start:server": "yarn --cwd ./server start",
     "install:server": "yarn --cwd ./server install",
     "start:client": "yarn --cwd ./client start",
