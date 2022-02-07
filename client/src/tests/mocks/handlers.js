@@ -30,7 +30,6 @@ const tasks = [
 
 export const handlers = [
   rest.get(`${process.env.REACT_APP_API_URL}/v1/tasks`, (req, res, ctx) => {
-    console.log(req);
 
     return res(ctx.json(tasks));
   }),

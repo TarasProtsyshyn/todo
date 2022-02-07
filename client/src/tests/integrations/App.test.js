@@ -9,4 +9,6 @@ test("renders without fails", async () => {
   renderWithRedux(<App />, { store });
 
   await waitForElementToBeRemoved(() => screen.queryByText(/Loading.../i));
+
+  expect(screen.getByTestId("tasks-list")).toBeInTheDocument();
 });

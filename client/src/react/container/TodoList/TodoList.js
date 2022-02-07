@@ -36,7 +36,13 @@ export const TodoList = () => {
       <TodoListFilters activeFilter={filter} onChange={onChangeFilter} />
       {loading && <div>Loading...</div>}
       {!loading && !tasks.length > 0 && <div>Not have tasks yet</div>}
-      {!loading && tasks.map((el) => <TodoListItem key={el.id} {...el} />)}
+      {!loading && tasks.length > 0 && (
+        <ul data-testid="tasks-list" >
+          {tasks.map((el) => (
+            <TodoListItem key={el.id} {...el} />
+          ))}
+        </ul>
+      )}
     </Container>
   );
 };
