@@ -1,0 +1,38 @@
+:root {
+  --color-dark-90: #222;
+  --color-dark-80: #999;
+  --color-dark-70: #666;
+  --color-dark-60: #2a2a2a;
+  --color-dark-50: #555;
+
+  --color-green-50: #85bf6b;
+
+  --color-red-50: red;
+
+  --font-primary: aktiv-grotesk-std, Helvetica Neue, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--color-dark-80);
+  background-color: var(--color-dark-90);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--color-dark-80);
+  font-family: var(--font-primary);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
